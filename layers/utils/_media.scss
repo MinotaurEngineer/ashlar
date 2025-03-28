@@ -1,0 +1,77 @@
+@use 'sass:list';
+@use 'sass:math';
+
+$breakpoints:(74,105,148,210,297,420);
+
+@mixin media {
+  @each $breakpoint in $breakpoints {
+    $breakpointIndex: list.index($breakpoints, $breakpoint);
+    @media screen and (min-width: #{$breakpoint}mm) {
+      @content($breakpointIndex, $breakpoint);
+    }
+  }
+}
+
+/* grid - colcount */
+@include media using ($breakpointIndex, $breakpoint) {
+  @for $i from 1 through 8{
+    @if $i < math.div($breakpoint, 25mm){
+      [grid~="s#{$breakpointIndex}:#{$i}"] {
+        --colcount: #{$i};
+      }
+    }
+  }
+}
+
+/* grid - spans */
+@include media using ($breakpointIndex, $breakpoint) {
+  @for $i from 1 through 8{
+    [span~="s#{$breakpointIndex}:#{$i}"] {
+      grid-column: span #{$i};
+    }
+  }
+  [span~="s#{$breakpointIndex}:all"] {
+    grid-column: 1 / -1;
+  }
+}
+
+/* grid and flex gaps */
+@include media using ($breakpointIndex, $breakpoint) {
+  @for $i from 1 through 8{
+
+    [row-gap~="s#{$breakpointIndex}:#{$i}"],
+    [gap~="s#{$breakpointIndex}:#{$i}"] {
+      row-gap: var(--gap-#{$i});
+    }
+
+    [column-gap~="s#{$breakpointIndex}:#{$i}"],
+    [gap~="s#{$breakpointIndex}:#{$i}"] {
+      column-gap: var(--gap-#{$i});
+    }
+
+  }
+}
+
+/* font-size */
+@include media using ($breakpointIndex, $breakpoint) {
+  @for $i from 1 through 8{
+    [font-size~="s#{$breakpointIndex}:#{$i}"] {
+      font-size: var(--type-scale-#{$i});
+    }
+  }
+}
+
+/* padding */
+@include media using ($breakpointIndex, $breakpoint) {
+  @for $i from 1 through 8{
+    [pad-inline~="s#{$breakpointIndex}:#{$i}"],
+    [pad~="s#{$breakpointIndex}:#{$i}"] {
+      padding-inline: var(--gap-#{$i});
+    }
+
+    [pad-block~="s#{$breakpointIndex}:#{$i}"],
+    [pad~="s#{$breakpointIndex}:#{$i}"] {
+      padding-block: var(--gap-#{$i});
+    }
+  }
+}

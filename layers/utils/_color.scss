@@ -1,0 +1,60 @@
+$colors: (
+  "gray",
+	"mauve",
+	"slate",
+	"sage",
+	"olive",
+	"sand",
+	"crimson",
+	"ruby",
+	"red",
+	"tomato",
+	"bronze",
+	"orange",
+	"brown",
+	"gold",
+	"amber",
+	"yellow",
+	"lime",
+	"grass",
+	"green",
+	"jade",
+	"mint",
+	"teal",
+	"sky",
+	"cyan",
+	"blue",
+	"indigo",
+	"iris",
+	"violet",
+	"purple",
+	"plum",
+	"pink"
+);
+
+/* text color attribute */
+@each $name in $colors {
+  @for $i from 1 through 12{
+    [color="#{$name}-#{$i}"]{
+      color: var(--color-#{$name}-#{$i});
+    }
+  }
+}
+
+/* bbackground color attribute */
+@each $name in $colors {
+  @for $i from 1 through 12{
+    [bgcolor="#{$name}-#{$i}"]{
+      background-color: var(--color-#{$name}-#{$i});
+    }
+  }
+}
+
+/* border color attribute */
+@each $name in $colors {
+  @for $i from 1 through 12{
+    [border-color="#{$name}-#{$i}"]{
+      border-color: var(--color-#{$name}-#{$i});
+    }
+  }
+}

@@ -3,9 +3,10 @@ html {
   -moz-osx-font-smoothing: grayscale;
   color-scheme: light dark;
   font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
   min-height: 100%;
-  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  touch-action: manipulation;
 }
 
 html:focus-within {
@@ -18,13 +19,12 @@ html:focus-within {
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   line-height: inherit;
 }
 
 a {
-  color: currentColor;
+  color: currentcolor;
   text-decoration: none;
   opacity: 0.87;
 }
@@ -88,6 +88,10 @@ table {
 table tr th {
   text-align: start;
   font-weight: inherit;
+}
+
+[hidden] {
+  display: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -520,35 +524,35 @@ table tr th {
   /* Sans */
   --tf-sans: system-ui, sans-serif;
   --tf-sans-humanist: Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans",
-  	source-sans-pro, sans-serif;
+    source-sans-pro, sans-serif;
   --tf-sans-geometric: Avenir, Montserrat, Corbel, "URW Gothic", source-sans-pro,
-  	sans-serif;
+    sans-serif;
   --tf-sans-grotesk: Inter, Roboto, "Helvetica Neue", "Arial Nova",
-  	"Nimbus Sans", Arial, sans-serif;
+    "Nimbus Sans", Arial, sans-serif;
   --tf-sans-industrial: Bahnschrift, "DIN Alternate", "Franklin Gothic Medium",
-  	"Nimbus Sans Narrow", sans-serif-condensed, sans-serif;
+    "Nimbus Sans Narrow", sans-serif-condensed, sans-serif;
   --tf-sans-rounded: ui-rounded, "Hiragino Maru Gothic ProN", Quicksand,
-  	Comfortaa, Manjari, "Arial Rounded MT", "Arial Rounded MT Bold", Calibri,
-  	source-sans-pro, sans-serif;
+    Comfortaa, Manjari, "Arial Rounded MT", "Arial Rounded MT Bold", Calibri,
+    source-sans-pro, sans-serif;
   /* Serif */
   --tf-serif: Charter, "Bitstream Charter", "Sitka Text", Cambria, serif;
   --tf-serif-oldstyle: "Iowan Old Style", "Palatino Linotype", "URW Palladio L",
-  	P052, serif;
+    P052, serif;
   --tf-serif-classical: Optima, Candara, "Noto Sans", source-sans-pro,
-  	sans-serif;
+    sans-serif;
   --tf-serif-slab: Rockwell, "Rockwell Nova", "Roboto Slab", "DejaVu Serif",
-  	"Sitka Small", serif;
+    "Sitka Small", serif;
   --tf-serif-antique: Superclarendon, "Bookman Old Style", "URW Bookman",
-  	"URW Bookman L", "Georgia Pro", Georgia, serif;
+    "URW Bookman L", "Georgia Pro", Georgia, serif;
   --tf-serif-didone: Didot, "Bodoni MT", "Noto Serif Display", "URW Palladio L",
-  	P052, Sylfaen, serif;
+    P052, Sylfaen, serif;
   /* Mono */
   --tf-mono: ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas,
-  	"DejaVu Sans Mono", monospace;
+    "DejaVu Sans Mono", monospace;
   --tf-mono-slab: "Nimbus Mono PS", "Courier New", monospace;
   /* Cursive */
   --tf-cursive: "Segoe Print", "Bradley Hand", Chilanka, TSCu_Comic, casual,
-  	cursive;
+    cursive;
 }
 
 :root {
@@ -577,9 +581,9 @@ table tr th {
 }
 
 :root {
-  --shadow-1: 0 1px 3px rgba(2,2,2,0.1), 0 1px 2px rgba(2,2,2, 0.06);
-  --shadow-2: 0 4px 6px rgba(2,2,2, 0.1), 0 2px 4px rgba(2,2,2, 0.06);
-  --shadow-3: 0 10px 15px rgba(2,2,2, 0.1), 0 4px 6px rgba(2,2,2, 0.05);
-  --shadow-4: 0 20px 25px rgba(2,2,2, 0.1), 0 8px 10px rgba(2,2,2, 0.04);
-  --shadow-5: 0 25px 50px rgba(2,2,2, 0.15), 0 10px 10px rgba(2,2,2, 0.04);
+  --shadow-1: 0 1px 3px rgb(2 2 2 / 10%), 0 1px 2px rgb(2 2 2 / 6%);
+  --shadow-2: 0 4px 6px rgb(2 2 2 / 10%), 0 2px 4px rgb(2 2 2 / 6%);
+  --shadow-3: 0 10px 15px rgb(2 2 2 / 10%), 0 4px 6px rgb(2 2 2 / 5%);
+  --shadow-4: 0 20px 25px rgb(2 2 2 / 10%), 0 8px 10px rgb(2 2 2 / 4%);
+  --shadow-5: 0 25px 50px rgb(2 2 2 / 15%), 0 10px 10px rgb(2 2 2 / 4%);
 }

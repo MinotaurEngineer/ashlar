@@ -1,11 +1,19 @@
 @use 'sass:list';
 @use 'sass:math';
 
-$breakpoints:(74,105,148,210,297,420);
+$breakpoints: (
+  74,
+  105,
+  148,
+  210,
+  297,
+  420
+);
 
 @mixin media {
   @each $breakpoint in $breakpoints {
     $breakpointIndex: list.index($breakpoints, $breakpoint);
+
     @media screen and (min-width: #{$breakpoint}mm) {
       @content($breakpointIndex, $breakpoint);
     }
@@ -14,8 +22,8 @@ $breakpoints:(74,105,148,210,297,420);
 
 /* grid - colcount */
 @include media using ($breakpointIndex, $breakpoint) {
-  @for $i from 1 through 8{
-    @if $i < math.div($breakpoint, 25mm){
+  @for $i from 1 through 8 {
+    @if $i < math.div($breakpoint, 25mm) {
       [grid~="s#{$breakpointIndex}:#{$i}"] {
         --colcount: #{$i};
       }
@@ -25,11 +33,12 @@ $breakpoints:(74,105,148,210,297,420);
 
 /* grid - spans */
 @include media using ($breakpointIndex, $breakpoint) {
-  @for $i from 1 through 8{
+  @for $i from 1 through 8 {
     [span~="s#{$breakpointIndex}:#{$i}"] {
       grid-column: span #{$i};
     }
   }
+
   [span~="s#{$breakpointIndex}:all"] {
     grid-column: 1 / -1;
   }
@@ -37,7 +46,7 @@ $breakpoints:(74,105,148,210,297,420);
 
 /* grid and flex gaps */
 @include media using ($breakpointIndex, $breakpoint) {
-  @for $i from 1 through 8{
+  @for $i from 1 through 8 {
 
     [row-gap~="s#{$breakpointIndex}:#{$i}"],
     [gap~="s#{$breakpointIndex}:#{$i}"] {
@@ -54,7 +63,7 @@ $breakpoints:(74,105,148,210,297,420);
 
 /* font-size */
 @include media using ($breakpointIndex, $breakpoint) {
-  @for $i from 1 through 8{
+  @for $i from 1 through 8 {
     [font-size~="s#{$breakpointIndex}:#{$i}"] {
       font-size: var(--type-scale-#{$i});
     }
@@ -63,7 +72,8 @@ $breakpoints:(74,105,148,210,297,420);
 
 /* padding */
 @include media using ($breakpointIndex, $breakpoint) {
-  @for $i from 1 through 8{
+  @for $i from 1 through 8 {
+
     [pad-inline~="s#{$breakpointIndex}:#{$i}"],
     [pad~="s#{$breakpointIndex}:#{$i}"] {
       padding-inline: var(--gap-#{$i});

@@ -1,15 +1,16 @@
-[grid]{
+[grid] {
   --colcount: 1;
+
   max-width: 420mm;
   display: grid;
   grid-template-columns: repeat(var(--colcount), minmax(0, 1fr));
   margin-inline: auto;
 }
 
-[grid~="width:content"]{
+[grid~="width:content"] {
   max-width: 210mm;
 }
 
-[grid~="width:full"]{
+[grid~="width:full"] {
   max-width: none;
 }

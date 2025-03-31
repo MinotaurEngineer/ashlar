@@ -1,15 +1,16 @@
 html {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	color-scheme: light dark;
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	min-height: 100%;
-	-webkit-text-size-adjust:100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizelegibility;
+  min-height: 100%;
+  text-size-adjust: 100%;
+  touch-action: manipulation;
 }
 
 html:focus-within {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 @view-transition {
@@ -17,24 +18,23 @@ html:focus-within {
 }
 
 * {
-	margin: 0;
-	padding: 0;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	line-height: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: inherit;
 }
 
 a {
-	color: currentColor;
-	text-decoration: none;
-	opacity: 0.87;
+  color: currentcolor;
+  text-decoration: none;
+  opacity: 0.87;
 }
 
 a:hover,
 a:focus,
 a:focus-within {
-	opacity: 1;
-	text-decoration: underline;
+  opacity: 1;
+  text-decoration: underline;
 }
 
 img,
@@ -42,15 +42,15 @@ picture,
 video,
 canvas,
 svg {
-	display: block;
-	max-width: 100%;
+  display: block;
+  max-width: 100%;
 }
 
 input,
 button,
 textarea,
 select {
-	font: inherit;
+  font: inherit;
 }
 
 p,
@@ -60,7 +60,7 @@ h3,
 h4,
 h5,
 h6 {
-	overflow-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 h1,
@@ -69,26 +69,30 @@ h3,
 h4,
 h5,
 h6 {
-	font-size: inherit;
-	text-wrap: balance;
-	line-height: 1;
-	font-weight: 400;
+  font-size: inherit;
+  text-wrap: balance;
+  line-height: 1;
+  font-weight: 400;
 }
 
 p {
-	text-wrap: pretty;
+  text-wrap: pretty;
 }
 
 table {
-	width: 100%;
-	border-collapse: collapse;
-	border-spacing: 0;
-	text-indent: 0;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  text-indent: 0;
 }
 
 table tr th {
-	text-align: start;
-	font-weight: inherit;
+  text-align: start;
+  font-weight: inherit;
+}
+
+[hidden] {
+  display: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -98,16 +102,16 @@ table tr th {
 }
 
 @media (prefers-reduced-motion: reduce) {
-	html:focus-within {
-		scroll-behavior: auto;
-	}
+  html:focus-within {
+    scroll-behavior: auto;
+  }
 
-	*,
-	*::before,
-	*::after {
-		animation-duration: 0.01ms !important;
-		animation-iteration-count: 1 !important;
-		transition-duration: 0.01ms !important;
-		scroll-behavior: auto !important;
-	}
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -5836,3 +5836,43 @@
 [border-color=pink-12] {
   border-color: var(--color-pink-12);
 }
+
+[focus-visible] {
+  outline: 2px solid var(--color-blue-8);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+[contrast=high] {
+  color: light-dark(var(--color-black), var(--color-white));
+  background-color: light-dark(var(--color-white), var(--color-black));
+}
+
+[text-size=large] {
+  font-size: var(--font-size-4);
+}
+
+[sr-only] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+[aria-hidden] {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [reduce-motion] {
+    animation: none;
+    transition: none;
+  }
+}

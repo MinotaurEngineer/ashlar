@@ -562,6 +562,9 @@ table tr th {
   --gap-7: 2.5rem;
   --gap-8: 3em;
   --gap-9: 3.75em;
+  --gap-10: 4.5em;
+  --gap-11: 5.25em;
+  --gap-12: 6em;
 }
 
 :root {
@@ -575,6 +578,9 @@ table tr th {
   --font-size-7: 1.75rem;
   --font-size-8: 2.1875rem;
   --font-size-9: 3.75rem;
+  --font-size-10: 4.5rem;
+  --font-size-11: 5.25rem;
+  --font-size-12: 6rem;
 }
 
 :root {

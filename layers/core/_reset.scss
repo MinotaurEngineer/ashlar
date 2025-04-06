@@ -7,9 +7,6 @@ html {
   min-height: 100%;
   text-size-adjust: 100%;
   touch-action: manipulation;
-}
-
-html:focus-within {
   scroll-behavior: smooth;
 }
 
@@ -25,7 +22,7 @@ html:focus-within {
 }
 
 a {
-  color: currentcolor;
+  color: currentColor;
   text-decoration: none;
   opacity: 0.87;
 }

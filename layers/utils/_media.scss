@@ -23,20 +23,41 @@ $breakpoints: (
 /* grid - colcount */
 @include media using ($breakpointIndex, $breakpoint) {
   @for $i from 1 through 8 {
-    @if $i < math.div($breakpoint, 25mm) {
-      [grid~="s#{$breakpointIndex}:#{$i}"] {
-        --colcount: #{$i};
-      }
+    [grid~="s#{$breakpointIndex}:#{$i}"] {
+      --colcount: #{$i};
     }
   }
 }
 
 /* grid - spans */
 @include media using ($breakpointIndex, $breakpoint) {
+
   @for $i from 1 through 8 {
     [span~="s#{$breakpointIndex}:#{$i}"] {
       grid-column: span #{$i};
     }
+
+    @for $j from 1 through 8 {
+
+      @if $j >$i {
+        [span~="s#{$breakpointIndex}:#{$i}-#{$j}"] {
+          grid-column:#{$i} / #{$j};
+        }
+      }
+
+      @if ($i + $j) <=8 {
+        [span~="s#{$breakpointIndex}:#{$i}+#{$j}"] {
+          grid-column: #{$i} / span #{$j};
+        }
+      }
+    }
+
+    @if $i < 8 {
+      [span~="s#{$breakpointIndex}:#{$i}.."] {
+        grid-column: #{$i} / -1;
+      }
+    }
+
   }
 
   [span~="s#{$breakpointIndex}:all"] {

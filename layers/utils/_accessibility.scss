@@ -27,10 +27,6 @@
   border: 0;
 }
 
-[aria-hidden] {
-  display: none;
-}
-
 @media (prefers-reduced-motion: reduce) {
   [reduce-motion] {
     animation: none;

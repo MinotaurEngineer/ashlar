@@ -14,3 +14,7 @@
 [grid~="width:full"] {
   max-width: none;
 }
+
+[grid~="subgrid"] {
+  grid-template-columns: subgrid;
+}

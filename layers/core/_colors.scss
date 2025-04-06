@@ -415,21 +415,17 @@ $colors: (
   --color-black: black;
 
   @each $color-name, $color-values in $colors {
+
     /* #{$color-name} */
     @for $i from 1 through list.length($color-values) {
-      $hexLight: list.nth($color-values, $i);
-      $oklchLight: color.to-gamut(color.to-space($hexLight, $space: oklch),
-          $space: rgb,
-          $method: local-minde);
       $reverse-index: (
         list.length($color-values) + 1) - $i;
-      $hexDark: list.nth($color-values, $reverse-index
-      );
-    $oklchDark: color.to-gamut(color.to-space($hexDark, $space: oklch),
-        $space: rgb,
-        $method: local-minde);
 
-    --color-#{$color-name}-#{$i}: light-dark(#{$oklchLight}, #{$oklchDark});
+      $hexLight: list.nth($color-values, $i
+      );
+    $hexDark: list.nth($color-values, $reverse-index);
+
+    --color-#{$color-name}-#{$i}: light-dark(#{$hexLight}, #{$hexDark});
   }
 }
 }

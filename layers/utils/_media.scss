@@ -20,6 +20,17 @@ $breakpoints: (
   }
 }
 
+/* visibility */
+@include media using ($breakpointIndex, $breakpoint) {
+  [visibility~="s#{$breakpointIndex}:show"] {
+    display: inherit;
+  }
+
+  [visibility~="s#{$breakpointIndex}:hide"] {
+    display: none;
+  }
+}
+
 /* grid - colcount */
 @include media using ($breakpointIndex, $breakpoint) {
   @for $i from 1 through 8 {

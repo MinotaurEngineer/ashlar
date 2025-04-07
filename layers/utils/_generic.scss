@@ -24,20 +24,25 @@
 
 [align="start"] {
   align-items: flex-start;
+  text-align: inherit;
 }
 
 [align="end"] {
   align-items: flex-end;
+  text-align: inherit;
 }
 
 [align="center"] {
   align-items: center;
+  text-align: inherit;
 }
 
 [align="stretch"] {
   align-items: stretch;
+  text-align: inherit;
 }
 
 [align="baseline"] {
   align-items: baseline;
+  text-align: inherit;
 }

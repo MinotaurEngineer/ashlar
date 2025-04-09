@@ -1,0 +1,19 @@
+@use "mixin" as mixin;
+@use "const" as const;
+
+/* --------------------------------------------------------------------- GAPS */
+@include mixin.media(const.$breakpoints) using ($breakpointIndex, $breakpoint) {
+  @for $i from 1 through const.$sizes {
+
+    [s#{$breakpointIndex}~="row-gap:#{$i}"],
+    [s#{$breakpointIndex}~="gap:#{$i}"] {
+      row-gap: var(--gap-#{$i});
+    }
+
+    [s#{$breakpointIndex}~="column-gap:#{$i}"],
+    [s#{$breakpointIndex}~="gap:#{$i}"] {
+      column-gap: var(--gap-#{$i});
+    }
+
+  }
+}

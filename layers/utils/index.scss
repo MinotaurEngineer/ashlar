@@ -1,6 +1,11 @@
-@use 'generic';
-@use 'flex';
-@use 'grid';
-@use 'media';
 @use 'fonts';
+@use 'display';
+
+@use 'gap';
+@use 'padding';
+
+@use 'grid';
+
+@use 'alignments';
+
 @use 'accessibility';

@@ -12,10 +12,6 @@
   background-color: light-dark(var(--color-white), var(--color-black));
 }
 
-[text-size=large] {
-  font-size: var(--font-size-4);
-}
-
 [sr-only] {
   position: absolute;
   width: 1px;
@@ -25,11 +21,4 @@
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  [reduce-motion] {
-    animation: none;
-    transition: none;
-  }
 }

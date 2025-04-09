@@ -1,0 +1,17 @@
+@use "mixin" as mixin;
+@use "const" as const;
+
+/* ------------------------------------------------------------------ DISPLAY */
+@include mixin.media(const.$breakpoints) using ($breakpointIndex, $breakpoint) {
+  @each $value in const.$display {
+    [s#{$breakpointIndex}~="display:#{$value}"] {
+      display: #{$value};
+    }
+  }
+
+  [s#{$breakpointIndex}~="display:subgrid"] {
+    grid-template-columns: subgrid;
+    gap: inherit;
+    grid-column: 1 / -1;
+  }
+}

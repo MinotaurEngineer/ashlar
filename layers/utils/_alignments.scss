@@ -1,0 +1,23 @@
+@use "mixin" as mixin;
+@use "const" as const;
+
+$properties: (
+  align-content,
+  align-items,
+  align-self,
+  justify-content,
+  justify-items,
+  justify-self
+);
+
+/* --------------------------------------------------------------- ALIGNMENTS */
+@include mixin.media(const.$breakpoints) using ($breakpointIndex, $breakpoint) {
+  @each $property in $properties {
+    @each $value in const.$align {
+      [s#{$breakpointIndex}~="#{$property}:#{$value}"] {
+        #{$property}: #{$value};
+      }
+    }
+  }
+
+}

@@ -1,0 +1,75 @@
+$breakpoints: (
+  74,
+  105,
+  148,
+  210,
+  297,
+  420
+);
+
+$columns: 8; // this sets the grid
+
+$sizes: 12; // this sets gaps and font sizes
+
+$display: (
+  block,
+  inline,
+  inline-block,
+  flex,
+  inline-flex,
+  grid,
+  inline-grid,
+  inherit,
+  initial,
+  revert,
+  revert-layer,
+  unset,
+  none,
+  contents,
+  flow-root,
+  table,
+  inline-table,
+  table-row,
+  table-row-group,
+  table-header-group,
+  table-footer-group,
+  table-cell,
+  table-column,
+  table-column-group,
+  list-item
+);
+
+$font-family: (
+  sans,
+  sans-humanist,
+  sans-geometric,
+  sans-grotesk,
+  sans-industrial,
+  sans-rounded,
+  serif,
+  serif-oldstyle,
+  serif-classical,
+  serif-slab,
+  serif-antique,
+  serif-didone mono,
+  mono-slab,
+  cursive
+);
+
+$align: (
+  normal,
+  stretch,
+  center,
+  start,
+  end,
+  baseline,
+  space-between,
+  space-around,
+  space-evenly,
+  anchor-center,
+  inherit,
+  initial,
+  revert,
+  revert-layer,
+  unset
+);

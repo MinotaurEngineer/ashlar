@@ -1,0 +1,11 @@
+@use 'sass:list';
+
+@mixin media($breakpoints, $unit: mm) {
+  @each $breakpoint in $breakpoints {
+    $breakpointIndex: list.index($breakpoints, $breakpoint);
+
+    @media screen and (min-width: #{$breakpoint}#{$unit}) {
+      @content($breakpointIndex, $breakpoint);
+    }
+  }
+}

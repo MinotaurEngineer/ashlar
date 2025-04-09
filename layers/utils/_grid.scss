@@ -1,20 +1,61 @@
-[grid] {
-  --colcount: 1;
+@use 'sass:list';
+@use "sass:selector";
 
+@use "mixin" as mixin;
+@use "const" as const;
+
+/* ------------------------------------------------------------- DISPLAY:GRID */
+$selectors: (
+);
+
+@for $i from 1 through list.length(const.$breakpoints) {
+  $selectors: list.append($selectors, '[s#{$i}~="display:grid"],[s#{$i}~="display:inline-grid"]', $separator: comma)
+}
+
+#{$selectors} {
+  --colcount: 1;
   max-width: 420mm;
-  display: grid;
   grid-template-columns: repeat(var(--colcount), minmax(0, 1fr));
   margin-inline: auto;
 }
 
-[grid~="width:content"] {
-  max-width: 210mm;
-}
+@include mixin.media(const.$breakpoints) using ($breakpointIndex, $breakpoint) {
 
-[grid~="width:full"] {
-  max-width: none;
-}
+  /* COLCOUNT */
+  @for $i from 1 through const.$columns {
+    [s#{$breakpointIndex}~="colcount:#{$i}"] {
+      --colcount: #{$i};
+    }
+  }
 
-[grid~="subgrid"] {
-  grid-template-columns: subgrid;
+  /* SPANS */
+  @for $i from 1 through const.$columns {
+
+    [s#{$breakpointIndex}~="span:#{$i}"] {
+      grid-column: span #{$i};
+    }
+
+    @for $j from 1 through const.$columns {
+
+      @if $j >$i {
+        [s#{$breakpointIndex}~="span:#{$i}-#{$j}"] {
+          grid-column:#{$i} / #{$j};
+        }
+      }
+
+      @if ($i + $j) <=8 {
+        [s#{$breakpointIndex}~="span:#{$i}+#{$j}"] {
+          grid-column: #{$i} / span #{$j};
+        }
+      }
+    }
+
+    @if $i < const.$columns {
+      [s#{$breakpointIndex}~="span:#{$i}.."] {
+        grid-column: #{$i} / -1;
+      }
+    }
+
+  }
+
 }

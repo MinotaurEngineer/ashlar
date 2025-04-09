@@ -4,14 +4,18 @@
 /* ------------------------------------------------------------------ DISPLAY */
 @include mixin.media(const.$breakpoints) using ($breakpointIndex, $breakpoint) {
   @each $value in const.$display {
-    [s#{$breakpointIndex}~="display:#{$value}"] {
+    [s#{$breakpointIndex}~="#{$value}"] {
       display: #{$value};
     }
   }
 
-  [s#{$breakpointIndex}~="display:subgrid"] {
+  [s#{$breakpointIndex}~="subgrid"] {
     grid-template-columns: subgrid;
     gap: inherit;
     grid-column: 1 / -1;
+  }
+
+  [s#{$breakpointIndex}~="hidden"] {
+    display: none
   }
 }

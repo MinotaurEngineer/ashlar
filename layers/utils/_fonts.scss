@@ -3,7 +3,7 @@
 
 /* -------------------------------------------------------------------- FONTS */
 @each $name in const.$font-family {
-  [font-family="#{$name}"] {
+  [font="#{$name}"] {
     font-family: var(--tf-#{$name});
   }
 }

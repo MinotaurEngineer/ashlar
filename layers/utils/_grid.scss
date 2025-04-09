@@ -9,7 +9,7 @@ $selectors: (
 );
 
 @for $i from 1 through list.length(const.$breakpoints) {
-  $selectors: list.append($selectors, '[s#{$i}~="display:grid"],[s#{$i}~="display:inline-grid"]', $separator: comma)
+  $selectors: list.append($selectors, '[s#{$i}~="grid"],[s#{$i}~="inline-grid"]', $separator: comma)
 }
 
 #{$selectors} {

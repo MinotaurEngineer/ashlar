@@ -5,27 +5,27 @@
 @include mixin.media(const.$breakpoints) using ($breakpointIndex, $breakpoint) {
   @for $i from 1 through const.$sizes {
 
-    [s#{$breakpointIndex}~="padding-inline-start:#{$i}"],
-    [s#{$breakpointIndex}~="padding-inline:#{$i}"],
-    [s#{$breakpointIndex}~="padding:#{$i}"] {
+    [s#{$breakpointIndex}~="pad-inline-start:#{$i}"],
+    [s#{$breakpointIndex}~="pad-inline:#{$i}"],
+    [s#{$breakpointIndex}~="pad:#{$i}"] {
       padding-inline-start: var(--gap-#{$i});
     }
 
-    [s#{$breakpointIndex}~="padding-inline-end:#{$i}"],
-    [s#{$breakpointIndex}~="padding-inline:#{$i}"],
-    [s#{$breakpointIndex}~="padding:#{$i}"] {
+    [s#{$breakpointIndex}~="pad-inline-end:#{$i}"],
+    [s#{$breakpointIndex}~="pad-inline:#{$i}"],
+    [s#{$breakpointIndex}~="pad:#{$i}"] {
       padding-inline-end: var(--gap-#{$i});
     }
 
-    [s#{$breakpointIndex}~="padding-block-start:#{$i}"],
-    [s#{$breakpointIndex}~="padding-block:#{$i}"],
-    [s#{$breakpointIndex}~="padding:#{$i}"] {
+    [s#{$breakpointIndex}~="pad-block-start:#{$i}"],
+    [s#{$breakpointIndex}~="pad-block:#{$i}"],
+    [s#{$breakpointIndex}~="pad:#{$i}"] {
       padding-block-start: var(--gap-#{$i});
     }
 
-    [s#{$breakpointIndex}~="padding-block-end:#{$i}"],
-    [s#{$breakpointIndex}~="padding-block:#{$i}"],
-    [s#{$breakpointIndex}~="padding:#{$i}"] {
+    [s#{$breakpointIndex}~="pad-block-end:#{$i}"],
+    [s#{$breakpointIndex}~="pad-block:#{$i}"],
+    [s#{$breakpointIndex}~="pad:#{$i}"] {
       padding-block-end: var(--gap-#{$i});
     }
 

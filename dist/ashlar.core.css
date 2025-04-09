@@ -9,12 +9,12 @@ html {
   touch-action: manipulation;
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  line-height: normal;
 }
 
 @view-transition {
   navigation: auto;
 }
-
 * {
   margin: 0;
   padding: 0;
@@ -98,12 +98,10 @@ table tr th {
     interpolate-size: allow-keywords;
   }
 }
-
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
     scroll-behavior: auto;
   }
-
   *,
   *::before,
   *::after {
@@ -113,7 +111,6 @@ table tr th {
     scroll-behavior: auto !important;
   }
 }
-
 :root {
   --color-white: white;
   --color-black: black;

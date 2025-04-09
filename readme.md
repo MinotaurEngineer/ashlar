@@ -50,54 +50,37 @@ This stylesheet lays the groundwork for a design system, delivering flexibility 
 ## ashlar.utils.css
 ---
 
-A utility-driven stylesheet for layout, typography, color, and accessibility, built with custom attributes and responsive media queries.
+A utility-driven stylesheet for layout, typography, and accessibility, leveraging custom attributes and responsive media queries tied to breakpoints: `74mm`, `105mm`, `148mm`, `210mm`, `297mm`, and `420mm`.
 
-1. **Flexbox Utilities**:
-   - `[justify=start|end|center|between|around|evenly]`: Sets `justify-content` to `flex-start`, `flex-end`, `center`, `space-between`, `space-around`, or `space-evenly`.
-   - `[align=start|end|center|stretch|baseline]`: Sets `align-items` to `flex-start`, `flex-end`, `center`, `stretch`, or `baseline`.
-   - `[flex]`: Applies `display: flex`.
-   - `[flex=column]`: Sets `flex-direction: column`.
-
-2. **Grid Utilities**:
-   - `[grid]`: Initializes a grid with `--colcount: 1`, `max-width: 420mm`, and `grid-template-columns` using `repeat(var(--colcount), minmax(0, 1fr))`, centered via `margin-inline: auto`.
-   - `[grid~="width:content"]`: Caps `max-width` at `210mm`.
-   - `[grid~="width:full"]`: Removes `max-width` constraint.
-   - Responsive column counts (`[grid~="sX:Y"]`) and spans (`[span~="sX:Y"]`) adjust at breakpoints:
-     - `74mm`: 1-2 columns/spans.
-     - `105mm`: 1-4 columns/spans.
-     - `148mm`: 1-5 columns/spans.
-     - `210mm`: 1-8 columns/spans.
-     - `297mm`: 1-8 columns/spans.
-     - `420mm`: 1-8 columns/spans.
-     - `all` spans full width (`grid-column: 1/-1`).
-
-3. **Spacing Utilities**:
-   - `[row-gap~="sX:Y"]`, `[column-gap~="sX:Y"]`, `[gap~="sX:Y"]`: Applies `--gap-Y` (1-8) to `row-gap`, `column-gap`, or both at breakpoints `74mm`, `105mm`, `148mm`, `210mm`, `297mm`, `420mm`.
-   - `[pad-inline~="sX:Y"]`, `[pad-block~="sX:Y"]`, `[pad~="sX:Y"]`: Applies `--gap-Y` (1-8) to padding at the same breakpoints.
-
-4. **Typography Utilities**:
-   - `[font-size~="sX:Y"]`: Sets `font-size` to `--type-scale-Y` (1-8) at breakpoints `74mm`, `105mm`, `148mm`, `210mm`, `297mm`, `420mm`.
+1. **Typography Utilities**:
    - `[font-family=type]`: Assigns font families from variables:
      - Sans-serif: `sans`, `sans-humanist`, `sans-geometric`, `sans-grotesk`, `sans-industrial`, `sans-rounded`.
-     - Serif: `serif`, `serif-oldstyle`, `serif-classical`, `serif-slab`, `serif-antique`, `serif-didone`.
-     - Monospace: `mono`, `mono-slab`.
+     - Serif: `serif`, `serif-oldstyle`, `serif-classical`, `serif-slab`, `serif-antique`, `serif-didone mono`.
+     - Monospace: `mono-slab`.
      - Cursive: `cursive`.
+   - `[font-size~="sX:Y"]`: Sets `font-size` to `--font-size-Y` (1-12) at breakpoints, e.g., `[s1~="font-size:3"]` applies `--font-size-3` at `74mm+`.
 
-5. **Color Utilities**:
-   - `[color=name-X]`: Sets `color` to `--color-name-X` (e.g., `gray-1` to `gray-12`).
-   - `[bgcolor=name-X]`: Sets `background-color` to `--color-name-X`.
-   - `[border-color=name-X]`: Sets `border-color` to `--color-name-X`.
-   - Colors include: `gray`, `mauve`, `slate`, `sage`, `olive`, `sand`, `crimson`, `ruby`, `red`, `tomato`, `bronze`, `orange`, `brown`, `gold`, `amber`, `yellow`, `lime`, `grass`, `green`, `jade`, `mint`, `teal`, `sky`, `cyan`, `blue`, `indigo`, `iris`, `violet`, `purple`, `plum`, `pink`, each with 12 shades.
+2. **Display Utilities**:
+   - `[sX~="display:value"]`: Applies display properties at breakpoints, including:
+     - `block`, `inline`, `inline-block`, `flex`, `inline-flex`, `grid`, `inline-grid`, `table`, `inline-table`, `table-row`, `table-row-group`, `table-header-group`, `table-footer-group`, `table-cell`, `table-column`, `table-column-group`, `list-item`, `flow-root`, `contents`, `none`.
+     - Special values: `inherit`, `initial`, `revert`, `revert-layer`, `unset`.
+     - `[sX~="display:subgrid"]`: Sets `grid-template-columns: subgrid`, `gap: inherit`, and `grid-column: 1/-1`.
 
-6. **Accessibility Utilities**:
-   - `[focus-visible]`: Adds a 2px solid outline (e.g., `--color-blue-8`) for keyboard focus, skipped on mouse clicks.
-   - `[contrast=high]`: Enforces high contrast (e.g., black on white or reverse) using `light-dark()`.
-   - `[text-size=large]`: Boosts font size to `--font-size-4` (~1.25rem) for readability.
-   - `[sr-only]`: Hides content visually while keeping it accessible to screen readers.
-   - `[aria-hidden]`: Conceals elements from assistive technologies with `display: none`.
-   - `[reduce-motion]`: Disables animations/transitions when `prefers-reduced-motion: reduce` is active.
+3. **Spacing Utilities**:
+   - `[sX~="gap:Y"]`, `[sX~="row-gap:Y"]`, `[sX~="column-gap:Y"]`: Applies `--gap-Y` (1-12) to `gap`, `row-gap`, or `column-gap` at breakpoints. `[gap:Y]` sets both row and column gaps.
+   - `[sX~="padding:Y"]`, `[sX~="padding-inline:Y"]`, `[sX~="padding-block:Y"]`, `[sX~="padding-inline-start:Y"]`, `[sX~="padding-inline-end:Y"]`, `[sX~="padding-block-start:Y"]`, `[sX~="padding-block-end:Y"]`: Applies `--gap-Y` (1-12) to padding properties at breakpoints. `[padding:Y]` sets all sides.
 
-This stylesheet relies on CSS variables (e.g., `--gap-1`, `--type-scale-1`, `--color-gray-1`) from a root file, offering a modular, responsive framework for layout, typography, color, and accessibility via attribute selectors.
+4. **Alignment Utilities** (Flexbox/Grid):
+   - `[sX~="align-content:value"]`, `[sX~="align-items:value"]`, `[sX~="align-self:value"]`, `[sX~="justify-content:value"]`, `[sX~="justify-items:value"]`, `[sX~="justify-self:value"]`: Applies alignment at breakpoints with values:
+     - `normal`, `stretch`, `center`, `start`, `end`, `baseline`, `space-between`, `space-around`, `space-evenly`, `anchor-center`.
+     - Special values: `inherit`, `initial`, `revert`, `revert-layer`, `unset`.
+
+5. **Accessibility Utilities**:
+   - `[focus-visible]`: Adds a 2px solid outline (`--color-blue-8`) with 2px offset for keyboard focus, skipped on mouse clicks (`:focus:not(:focus-visible)` removes outline).
+   - `[contrast=high]`: Enforces high contrast using `light-dark(var(--color-black), var(--color-white))` for text and reverse for background.
+   - `[sr-only]`: Hides content visually (1px × 1px, clipped, overflow hidden) while keeping it accessible to screen readers.
+
+This stylesheet uses CSS variables (e.g., `--font-size-1`, `--gap-1`) from a root file, providing a modular, responsive framework for typography, layout, spacing, and accessibility via attribute selectors and media queries.
 
 ## ashlar.theme.css
 ---
